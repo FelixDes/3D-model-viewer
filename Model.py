@@ -33,7 +33,6 @@ class Model(QObject):
             [x, y, z, 1]
         ])
         self.__update_vertexes(transition_matrix)
-        self.update_model_signal()
 
     def resize(self, c):
         c = 1 / c
@@ -44,7 +43,6 @@ class Model(QObject):
             [0, 0, 0, c]
         ])
         self.__update_vertexes(transition_matrix)
-        self.update_model_signal()
 
     def rotate(self, axis, angle):
         angle = np.radians(angle)
@@ -70,7 +68,6 @@ class Model(QObject):
                 [0, 0, 0, 1]
             ])
         self.__update_vertexes(transition_matrix)
-        self.update_model_signal()
 
     def shrink(self, cx, cy, cz):
         transition_matrix = np.array([
@@ -80,9 +77,8 @@ class Model(QObject):
             [0, 0, 0, 1]
         ])
         self.__update_vertexes(transition_matrix)
-        self.update_model_signal()
 
-    def update_model_signal(self):
+    def emit_update_model_signal(self):
         self.on_mesh_changed.emit(self._obj_model.vertexes, self._obj_model.faces, self.texture_url,
                                   self._obj_model.textures)
 
@@ -143,7 +139,7 @@ class Model(QObject):
             print(message)
         self._obj_model = ObjModel(meta_text, vertexes, faces, texture)
         self.enable_actions.emit(True)
-        self.update_model_signal()
+        self.emit_update_model_signal()
 
     def load_to_file(self, url):
         file = open(url[0], 'w')
@@ -173,4 +169,4 @@ class Model(QObject):
 
     def set_texture(self, url):
         self.texture_url = url[0]
-        self.update_model_signal()
+        self.emit_update_model_signal()

@@ -12,8 +12,8 @@ def main():
 
     model = Model()
     controller = Controller(model)
-    view = MainWindow_ver1(model, controller)
-    # view = MainWindow_ver2(model, controller)
+    # view = MainWindow_ver1(model, controller)
+    view = MainWindow_ver2(model, controller)
     view.show()
 
     app.exec()

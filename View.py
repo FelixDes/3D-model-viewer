@@ -2,7 +2,6 @@ import numpy as np
 from PyQt6 import uic
 from PyQt6.QtCore import pyqtSlot
 from PyQt6.QtWidgets import QMainWindow, QFileDialog, QFrame
-from pyqtgraph.opengl import GLMeshItem, GLViewWidget, MeshData
 
 from vtk.qt.QVTKRenderWindowInteractor import QVTKRenderWindowInteractor
 from vedo import Plotter, Mesh
@@ -18,7 +17,7 @@ class MainWindow_ver1(QMainWindow):
         uic.loadUi('resources/gui/gui_1.ui', self)
 
         self.vtkWidget = QVTKRenderWindowInteractor(self.vtk_frame)
-        self.plt = Plotter(qtWidget=self.vtkWidget)
+        self.plt = Plotter(qt_widget=self.vtkWidget)
         self.model_layout.addWidget(self.vtkWidget)
         self.plt.show()
 
@@ -81,7 +80,7 @@ class MainWindow_ver2(QMainWindow):
         self.splitter.setSizes([500, 200])
 
         self.vtkWidget = QVTKRenderWindowInteractor(self.vtk_frame)
-        self.plt = Plotter(qtWidget=self.vtkWidget)
+        self.plt = Plotter(qt_widget=self.vtkWidget)
         self.model_layout.addWidget(self.vtkWidget)
         self.plt.show()
 
@@ -103,9 +102,14 @@ class MainWindow_ver2(QMainWindow):
         self.angle_sb.valueChanged.connect(self._controller.rotate_angle_changed)
         self.rotate_btn.clicked.connect(self._controller.rotate_clicked)
 
+        self.resize_cb.stateChanged.connect(self._controller.resize_changed)
+        self.rotate_cb.stateChanged.connect(self._controller.rotate_changed)
+        self.move_cb.stateChanged.connect(self._controller.move_changed)
+        self.shrink_cb.stateChanged.connect(self._controller.shrink_changed)
+        self.apply_btn.clicked.connect(self._controller.apply_clicked)
+
         self.open_file.triggered.connect(lambda: self._controller.file_picked(self.get_file()))
         self.open_texture.triggered.connect(lambda: self._controller.texture_picked(self.get_texture()))
-
         self.save_file.triggered.connect(lambda: self._controller.write_to_file(self.file_save()))
 
         # listen for model event signals
@@ -124,7 +128,7 @@ class MainWindow_ver2(QMainWindow):
     @pyqtSlot(object, object, str, object)
     def update_mesh(self, vertexes, faces, texture_url, textures):
         for _ in range(len(self.plt.getMeshes())):
-            self.plt.pop(0)
+            self.plt.pop()
         mesh = Mesh([vertexes, faces])
         if texture_url != "":
             mesh.texture(texture_url, tcoords=textures)
