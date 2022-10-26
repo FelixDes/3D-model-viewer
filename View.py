@@ -85,22 +85,32 @@ class MainWindow_ver2(QMainWindow):
         self.plt.show()
 
         # connect widgets to controller
+        # ================RESIZE===============
         self.resize_sb.valueChanged.connect(self._controller.resize_coefficient_changed)
         self.resize_btn.clicked.connect(self._controller.resize_clicked)
+        self.resize_for_point_fr.hide()
+        self.resize_for_point_cb.stateChanged.connect(self.resize_for_point_cb_state_changed)
 
+        # ================MOVE===============
         self.move_x_sb.valueChanged.connect(self._controller.move_x_changed)
         self.move_y_sb.valueChanged.connect(self._controller.move_y_changed)
         self.move_z_sb.valueChanged.connect(self._controller.move_z_changed)
         self.move_btn.clicked.connect(self._controller.move_clicked)
 
+        # ================SHRINK===============
         self.shrink_x_sb.valueChanged.connect(self._controller.shrink_x_changed)
         self.shrink_y_sb.valueChanged.connect(self._controller.shrink_y_changed)
         self.shrink_z_sb.valueChanged.connect(self._controller.shrink_z_changed)
         self.shrink_btn.clicked.connect(self._controller.shrink_clicked)
+        self.shrink_for_point_fr.hide()
+        self.shrink_for_point_cb.stateChanged.connect(self.shrink_for_point_cb_state_changed)
 
-        self.axis_cb.currentIndexChanged.connect(self._controller.rotate_axis_changed)
+        # ================ROTATE===============
+        self.axis_default_cb.currentIndexChanged.connect(self._controller.rotate_axis_changed)
         self.angle_sb.valueChanged.connect(self._controller.rotate_angle_changed)
         self.rotate_btn.clicked.connect(self._controller.rotate_clicked)
+        self.rotate_custom_axis_fr.hide()
+        self.rotate_custom_axis_cb.stateChanged.connect(self.rotate_custom_axis_cb_state_changed)
 
         self.resize_cb.stateChanged.connect(self._controller.resize_changed)
         self.rotate_cb.stateChanged.connect(self._controller.rotate_changed)
@@ -134,3 +144,23 @@ class MainWindow_ver2(QMainWindow):
             mesh.texture(texture_url, tcoords=textures)
         self.plt += mesh
         self.plt.show(axes=1)
+
+    def resize_for_point_cb_state_changed(self, val):
+        if val:
+            self.resize_for_point_fr.show()
+        else:
+            self.resize_for_point_fr.hide()
+
+    def rotate_custom_axis_cb_state_changed(self, val):
+        if val:
+            self.rotate_custom_axis_fr.show()
+            self.rotate_default_axis_fr.hide()
+        else:
+            self.rotate_custom_axis_fr.hide()
+            self.rotate_default_axis_fr.show()
+
+    def shrink_for_point_cb_state_changed(self, val):
+        if val:
+            self.shrink_for_point_fr.show()
+        else:
+            self.shrink_for_point_fr.hide()
