@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import QApplication
 
 from Model import Model
 from Controller import Controller
-from View import MainWindow_ver1, MainWindow_ver2
+from View import MainWindow_ver2
 
 
 def main():
