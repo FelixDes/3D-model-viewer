@@ -23,7 +23,7 @@ class MainWindow_ver1(QMainWindow):
 
         # connect widgets to controller
         self.resize_sb.valueChanged.connect(self._controller.resize_coefficient_changed)
-        self.resize_btn.clicked.connect(self._controller.resize_clicked)
+        self.resize_btn.clicked.connect(self._controller.resize_clicked_wrapper)
 
         self.move_x_sb.valueChanged.connect(self._controller.move_x_changed)
         self.move_y_sb.valueChanged.connect(self._controller.move_y_changed)
@@ -33,11 +33,11 @@ class MainWindow_ver1(QMainWindow):
         self.shrink_x_sb.valueChanged.connect(self._controller.shrink_x_changed)
         self.shrink_y_sb.valueChanged.connect(self._controller.shrink_y_changed)
         self.shrink_z_sb.valueChanged.connect(self._controller.shrink_z_changed)
-        self.shrink_btn.clicked.connect(self._controller.shrink_clicked)
+        self.shrink_btn.clicked.connect(self._controller.shrink_clicked_wrapper)
 
         self.axis_cb.currentIndexChanged.connect(self._controller.rotate_axis_changed)
         self.angle_sb.valueChanged.connect(self._controller.rotate_angle_changed)
-        self.rotate_btn.clicked.connect(self._controller.rotate_clicked)
+        self.rotate_btn.clicked.connect(self._controller.rotate_clicked_wrapper)
 
         self.open_file.clicked.connect(lambda: self._controller.file_picked(self.get_file()))
         self.open_texture.clicked.connect(lambda: self._controller.texture_picked(self.get_texture()))
@@ -87,7 +87,13 @@ class MainWindow_ver2(QMainWindow):
         # connect widgets to controller
         # ================RESIZE===============
         self.resize_sb.valueChanged.connect(self._controller.resize_coefficient_changed)
-        self.resize_btn.clicked.connect(self._controller.resize_clicked)
+        self.resize_btn.clicked.connect(self._controller.resize_clicked_wrapper)
+
+        self.resize_for_point_cb.stateChanged.connect(self._controller.resize_for_point_changed)
+        self.resize_for_point_x_sb.valueChanged.connect(self._controller.resize_for_point_x_changed)
+        self.resize_for_point_y_sb.valueChanged.connect(self._controller.resize_for_point_y_changed)
+        self.resize_for_point_z_sb.valueChanged.connect(self._controller.resize_for_point_z_changed)
+
         self.resize_for_point_fr.hide()
         self.resize_for_point_cb.stateChanged.connect(self.resize_for_point_cb_state_changed)
 
@@ -95,23 +101,36 @@ class MainWindow_ver2(QMainWindow):
         self.move_x_sb.valueChanged.connect(self._controller.move_x_changed)
         self.move_y_sb.valueChanged.connect(self._controller.move_y_changed)
         self.move_z_sb.valueChanged.connect(self._controller.move_z_changed)
-        self.move_btn.clicked.connect(self._controller.move_clicked)
+        self.move_btn.clicked.connect(self._controller.move_clicked_wrapper)
 
         # ================SHRINK===============
         self.shrink_x_sb.valueChanged.connect(self._controller.shrink_x_changed)
         self.shrink_y_sb.valueChanged.connect(self._controller.shrink_y_changed)
         self.shrink_z_sb.valueChanged.connect(self._controller.shrink_z_changed)
-        self.shrink_btn.clicked.connect(self._controller.shrink_clicked)
+        self.shrink_btn.clicked.connect(self._controller.shrink_clicked_wrapper)
+
+        self.shrink_for_point_cb.stateChanged.connect(self._controller.shrink_for_point_changed)
+        self.shrink_for_point_x_sb.valueChanged.connect(self._controller.shrink_for_point_x_changed)
+        self.shrink_for_point_y_sb.valueChanged.connect(self._controller.shrink_for_point_y_changed)
+        self.shrink_for_point_z_sb.valueChanged.connect(self._controller.shrink_for_point_z_changed)
+
         self.shrink_for_point_fr.hide()
         self.shrink_for_point_cb.stateChanged.connect(self.shrink_for_point_cb_state_changed)
 
         # ================ROTATE===============
         self.axis_default_cb.currentIndexChanged.connect(self._controller.rotate_axis_changed)
         self.angle_sb.valueChanged.connect(self._controller.rotate_angle_changed)
-        self.rotate_btn.clicked.connect(self._controller.rotate_clicked)
+        self.rotate_btn.clicked.connect(self._controller.rotate_clicked_wrapper)
+
+        self.rotate_custom_axis_cb.stateChanged.connect(self._controller.rotate_custom_axis_changed)
+        self.rotate_custom_axis_x_sb.valueChanged.connect(self._controller.rotate_custom_axis_x_changed)
+        self.rotate_custom_axis_y_sb.valueChanged.connect(self._controller.rotate_custom_axis_y_changed)
+        self.rotate_custom_axis_z_sb.valueChanged.connect(self._controller.rotate_custom_axis_z_changed)
+
         self.rotate_custom_axis_fr.hide()
         self.rotate_custom_axis_cb.stateChanged.connect(self.rotate_custom_axis_cb_state_changed)
 
+        # ================APPLY===============
         self.resize_cb.stateChanged.connect(self._controller.resize_changed)
         self.rotate_cb.stateChanged.connect(self._controller.rotate_changed)
         self.move_cb.stateChanged.connect(self._controller.move_changed)

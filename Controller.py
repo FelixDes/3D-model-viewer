@@ -8,6 +8,10 @@ class Controller(QObject):
         self._operations_order = []
 
         self._resize_coefficient = 1
+        self._resize_for_point_flag = False
+        self._resize_for_point_x = 0
+        self._resize_for_point_y = 0
+        self._resize_for_point_z = 0
 
         self._move_x = 0
         self._move_y = 0
@@ -16,9 +20,17 @@ class Controller(QObject):
         self._shrink_x = 1
         self._shrink_y = 1
         self._shrink_z = 1
+        self._shrink_for_point_flag = False
+        self._shrink_for_point_x = 0
+        self._shrink_for_point_y = 0
+        self._shrink_for_point_z = 0
 
         self._rotate_axis = 0  # x:0 y:1 z:2
         self._rotate_angle = 0
+        self._rotate_custom_axis_flag = False
+        self._rotate_custom_axis_x = 0
+        self._rotate_custom_axis_y = 0
+        self._rotate_custom_axis_z = 0
 
         self._resize_flag = False
         self._move_flag = False
@@ -31,9 +43,36 @@ class Controller(QObject):
         self._resize_coefficient = c
 
     @pyqtSlot()
-    def resize_clicked(self):
-        self._model.resize(self._resize_coefficient)
+    def resize_clicked_wrapper(self):
+        self._resize()
         self._model.emit_update_model_signal()
+
+    def _resize(self):
+        if self._resize_for_point_flag:
+            self._model.resize_around_point(
+                self._resize_for_point_x,
+                self._resize_for_point_y,
+                self._resize_for_point_z,
+                self._resize_coefficient
+            )
+        else:
+            self._model.resize(self._resize_coefficient)
+
+    @pyqtSlot(int)
+    def resize_for_point_changed(self, flag):
+        self._resize_for_point_flag = flag
+
+    @pyqtSlot(float)
+    def resize_for_point_x_changed(self, x):
+        self._resize_for_point_x = x
+
+    @pyqtSlot(float)
+    def resize_for_point_y_changed(self, y):
+        self._resize_for_point_y = y
+
+    @pyqtSlot(float)
+    def resize_for_point_z_changed(self, z):
+        self._resize_for_point_z = z
 
     # ================MOVE===============
     @pyqtSlot(float)
@@ -49,9 +88,12 @@ class Controller(QObject):
         self._move_z = mz
 
     @pyqtSlot()
-    def move_clicked(self):
-        self._model.move(self._move_x, self._move_y, self._move_z)
+    def move_clicked_wrapper(self):
+        self._move()
         self._model.emit_update_model_signal()
+
+    def _move(self):
+        self._model.move(self._move_x, self._move_y, self._move_z)
 
     # ================ROTATE===============
     @pyqtSlot(float)
@@ -63,9 +105,36 @@ class Controller(QObject):
         self._rotate_axis = axis
 
     @pyqtSlot()
-    def rotate_clicked(self):
-        self._model.rotate(self._rotate_axis, self._rotate_angle)
+    def rotate_clicked_wrapper(self):
+        self._rotate()
         self._model.emit_update_model_signal()
+
+    def _rotate(self):
+        if self._rotate_custom_axis_flag:
+            self._model.rotate_along_free_axis(
+                self._rotate_custom_axis_x,
+                self._rotate_custom_axis_y,
+                self._rotate_custom_axis_z,
+                self._rotate_angle
+            )
+        else:
+            self._model.rotate(self._rotate_axis, self._rotate_angle)
+
+    @pyqtSlot(int)
+    def rotate_custom_axis_changed(self, flag):
+        self._rotate_custom_axis_flag = flag
+
+    @pyqtSlot(float)
+    def rotate_custom_axis_x_changed(self, x):
+        self._rotate_custom_axis_x = x
+
+    @pyqtSlot(float)
+    def rotate_custom_axis_y_changed(self, y):
+        self._rotate_custom_axis_y = y
+
+    @pyqtSlot(float)
+    def rotate_custom_axis_z_changed(self, z):
+        self._rotate_custom_axis_z = z
 
     # ================SHRINK===============
     @pyqtSlot(float)
@@ -81,9 +150,38 @@ class Controller(QObject):
         self._shrink_z = mz
 
     @pyqtSlot()
-    def shrink_clicked(self):
-        self._model.shrink(self._shrink_x, self._shrink_y, self._shrink_z)
+    def shrink_clicked_wrapper(self):
+        self._shrink()
         self._model.emit_update_model_signal()
+
+    def _shrink(self):
+        if self._shrink_for_point_flag:
+            self._model.shrink_along_free_axis(
+                self._shrink_for_point_x,
+                self._shrink_for_point_y,
+                self._shrink_for_point_z,
+                self._shrink_x,
+                self._shrink_y,
+                self._shrink_z,
+            )
+        else:
+            self._model.shrink(self._shrink_x, self._shrink_y, self._shrink_z)
+
+    @pyqtSlot(int)
+    def shrink_for_point_changed(self, flag):
+        self._shrink_for_point_flag = flag
+
+    @pyqtSlot(float)
+    def shrink_for_point_x_changed(self, x):
+        self._shrink_for_point_x = x
+
+    @pyqtSlot(float)
+    def shrink_for_point_y_changed(self, y):
+        self._shrink_for_point_y = y
+
+    @pyqtSlot(float)
+    def shrink_for_point_z_changed(self, z):
+        self._shrink_for_point_z = z
 
     # ================APPLY===============
     @pyqtSlot(int)
@@ -103,6 +201,7 @@ class Controller(QObject):
         else:
             self._operations_order.remove("ro")
         print(self._operations_order)
+
     @pyqtSlot(int)
     def move_changed(self, flag):
         # self._move_flag = flag
@@ -125,13 +224,13 @@ class Controller(QObject):
     def apply_clicked(self):
         for elem in self._operations_order:
             if elem == "re":
-                self._model.resize(self._resize_coefficient)
+                self._resize()
             if elem == "ro":
-                self._model.rotate(self._rotate_axis, self._rotate_angle)
+                self._rotate()
             if elem == "mv":
                 self._model.move(self._move_x, self._move_y, self._move_z)
             if elem == "sh":
-                self._model.shrink(self._shrink_x, self._shrink_y, self._shrink_z)
+                self._shrink()
             self._model.emit_update_model_signal()
 
     # ================FILES===============

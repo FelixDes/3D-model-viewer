@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1959</width>
-    <height>1174</height>
+    <width>822</width>
+    <height>1464</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_33">
+   <layout class="QVBoxLayout" name="verticalLayout_12">
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="sizePolicy">
@@ -108,583 +108,602 @@
             <enum>QLayout::SetMaximumSize</enum>
            </property>
            <item>
-            <widget class="QFrame" name="frame_4">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+            <widget class="QScrollArea" name="scrollArea">
+             <property name="widgetResizable">
+              <bool>true</bool>
              </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_21">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_2">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout">
+             <widget class="QWidget" name="scrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>638</width>
+                <height>1350</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <widget class="QFrame" name="frame_4">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_21">
                   <item>
-                   <widget class="QCheckBox" name="resize_cb">
-                    <property name="text">
-                     <string>Resize</string>
-                    </property>
-                    <property name="checked">
-                     <bool>false</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_25">
-                  <item>
-                   <widget class="QCheckBox" name="resize_for_point_cb">
-                    <property name="text">
-                     <string>Resize for point</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QFrame" name="resize_for_point_fr">
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_10">
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_26">
-                     <item>
-                      <widget class="QLabel" name="label_5">
-                       <property name="text">
-                        <string>x</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
-                       <property name="minimum">
-                        <double>-99.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_29">
-                     <item>
-                      <widget class="QLabel" name="label_8">
-                       <property name="text">
-                        <string>y</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
-                       <property name="minimum">
-                        <double>-99.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_28">
-                     <item>
-                      <widget class="QLabel" name="label_7">
-                       <property name="text">
-                        <string>z</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
-                       <property name="minimum">
-                        <double>-99.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_2">
-                  <item>
-                   <widget class="QLabel" name="label_2">
-                    <property name="text">
-                     <string>Coefficient</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="resize_sb">
-                    <property name="minimum">
-                     <double>0.000000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>1.000000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="resize_btn">
-                  <property name="text">
-                   <string>Resize</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QFrame" name="frame">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_15">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_5">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_5">
-                  <item>
-                   <widget class="QCheckBox" name="rotate_cb">
-                    <property name="text">
-                     <string>Rotate</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_24">
-                  <item>
-                   <widget class="QCheckBox" name="rotate_custom_axis_cb">
-                    <property name="text">
-                     <string>Use custom axis</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QFrame" name="rotate_default_axis_fr">
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_9">
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_14">
-                     <item>
-                      <widget class="QLabel" name="label_17">
-                       <property name="text">
-                        <string>Axis</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QComboBox" name="axis_default_cb">
-                       <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout">
+                      <item>
+                       <widget class="QCheckBox" name="resize_cb">
                         <property name="text">
-                         <string>X</string>
+                         <string>Resize</string>
                         </property>
-                       </item>
-                       <item>
+                        <property name="checked">
+                         <bool>false</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_25">
+                      <item>
+                       <widget class="QCheckBox" name="resize_for_point_cb">
                         <property name="text">
-                         <string>Y</string>
+                         <string>Resize for point</string>
                         </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="resize_for_point_fr">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_10">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_26">
+                         <item>
+                          <widget class="QLabel" name="label_5">
+                           <property name="text">
+                            <string>x</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="resize_for_point_x_sb">
+                           <property name="minimum">
+                            <double>-99.000000000000000</double>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </item>
                        <item>
-                        <property name="text">
-                         <string>Z</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QFrame" name="rotate_custom_axis_fr">
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7">
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_8">
-                     <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_23">
-                       <item>
-                        <widget class="QLabel" name="label_4">
-                         <property name="text">
-                          <string>x</string>
-                         </property>
-                        </widget>
+                        <layout class="QHBoxLayout" name="horizontalLayout_29">
+                         <item>
+                          <widget class="QLabel" name="label_8">
+                           <property name="text">
+                            <string>y</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="resize_for_point_y_sb">
+                           <property name="minimum">
+                            <double>-99.000000000000000</double>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </item>
                        <item>
-                        <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
-                         <property name="minimum">
-                          <double>-99.000000000000000</double>
-                         </property>
-                        </widget>
+                        <layout class="QHBoxLayout" name="horizontalLayout_28">
+                         <item>
+                          <widget class="QLabel" name="label_7">
+                           <property name="text">
+                            <string>z</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="resize_for_point_z_sb">
+                           <property name="minimum">
+                            <double>-99.000000000000000</double>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
                        </item>
                       </layout>
-                     </item>
-                     <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_22">
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_2">
+                      <item>
+                       <widget class="QLabel" name="label_2">
+                        <property name="text">
+                         <string>Coefficient</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="resize_sb">
+                        <property name="minimum">
+                         <double>0.000000000000000</double>
+                        </property>
+                        <property name="value">
+                         <double>1.000000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="resize_btn">
+                      <property name="text">
+                       <string>Resize</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_15">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_5">
+                      <item>
+                       <widget class="QCheckBox" name="rotate_cb">
+                        <property name="text">
+                         <string>Rotate</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_24">
+                      <item>
+                       <widget class="QCheckBox" name="rotate_custom_axis_cb">
+                        <property name="text">
+                         <string>Use custom axis</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="rotate_default_axis_fr">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_9">
                        <item>
-                        <widget class="QLabel" name="label_3">
-                         <property name="text">
-                          <string>y</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-                         <property name="minimum">
-                          <double>-99.000000000000000</double>
-                         </property>
-                        </widget>
+                        <layout class="QHBoxLayout" name="horizontalLayout_14">
+                         <item>
+                          <widget class="QLabel" name="label_17">
+                           <property name="text">
+                            <string>Axis</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QComboBox" name="axis_default_cb">
+                           <item>
+                            <property name="text">
+                             <string>X</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>Y</string>
+                            </property>
+                           </item>
+                           <item>
+                            <property name="text">
+                             <string>Z</string>
+                            </property>
+                           </item>
+                          </widget>
+                         </item>
+                        </layout>
                        </item>
                       </layout>
-                     </item>
-                     <item>
-                      <layout class="QHBoxLayout" name="horizontalLayout_8">
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="rotate_custom_axis_fr">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_7">
                        <item>
-                        <widget class="QLabel" name="label">
-                         <property name="text">
-                          <string>z</string>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QDoubleSpinBox" name="doubleSpinBox">
-                         <property name="minimum">
-                          <double>-99.000000000000000</double>
-                         </property>
-                        </widget>
+                        <layout class="QVBoxLayout" name="verticalLayout_8">
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_23">
+                           <item>
+                            <widget class="QLabel" name="label_4">
+                             <property name="text">
+                              <string>x</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QDoubleSpinBox" name="rotate_custom_axis_x_sb">
+                             <property name="minimum">
+                              <double>-99.000000000000000</double>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_22">
+                           <item>
+                            <widget class="QLabel" name="label_3">
+                             <property name="text">
+                              <string>y</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QDoubleSpinBox" name="rotate_custom_axis_y_sb">
+                             <property name="minimum">
+                              <double>-99.000000000000000</double>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="horizontalLayout_8">
+                           <item>
+                            <widget class="QLabel" name="label">
+                             <property name="text">
+                              <string>z</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QDoubleSpinBox" name="rotate_custom_axis_z_sb">
+                             <property name="minimum">
+                              <double>-99.000000000000000</double>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
                        </item>
                       </layout>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_12">
-                  <item>
-                   <widget class="QLabel" name="label_15">
-                    <property name="text">
-                     <string>Angle</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="angle_sb">
-                    <property name="minimum">
-                     <double>-360.000000000000000</double>
-                    </property>
-                    <property name="maximum">
-                     <double>360.000000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="rotate_btn">
-                  <property name="text">
-                   <string>Rotate</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QFrame" name="frame_2">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_19">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_6">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_3">
-                  <item>
-                   <widget class="QCheckBox" name="move_cb">
-                    <property name="text">
-                     <string>Move</string>
-                    </property>
-                   </widget>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_12">
+                      <item>
+                       <widget class="QLabel" name="label_15">
+                        <property name="text">
+                         <string>Angle</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="angle_sb">
+                        <property name="minimum">
+                         <double>-360.000000000000000</double>
+                        </property>
+                        <property name="maximum">
+                         <double>360.000000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="rotate_btn">
+                      <property name="text">
+                       <string>Rotate</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_16">
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame_2">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_19">
                   <item>
-                   <widget class="QLabel" name="label_18">
-                    <property name="text">
-                     <string>For X</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="move_x_sb">
-                    <property name="minimum">
-                     <double>-999.990000000000009</double>
-                    </property>
-                    <property name="maximum">
-                     <double>999.990000000000009</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_17">
-                  <item>
-                   <widget class="QLabel" name="label_19">
-                    <property name="text">
-                     <string>For Y</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="move_y_sb">
-                    <property name="minimum">
-                     <double>-999.990000000000009</double>
-                    </property>
-                    <property name="maximum">
-                     <double>999.990000000000009</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_18">
-                  <item>
-                   <widget class="QLabel" name="label_20">
-                    <property name="text">
-                     <string>For Z</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="move_z_sb">
-                    <property name="minimum">
-                     <double>-999.990000000000009</double>
-                    </property>
-                    <property name="maximum">
-                     <double>999.990000000000009</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="move_btn">
-                  <property name="text">
-                   <string>Move</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QFrame" name="frame_3">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_20">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_4">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
-                  <item>
-                   <widget class="QCheckBox" name="shrink_cb">
-                    <property name="text">
-                     <string>Shrink</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_32">
-                  <item>
-                   <widget class="QCheckBox" name="shrink_for_point_cb">
-                    <property name="text">
-                     <string>Shrink for point</string>
-                    </property>
-                   </widget>
+                   <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_3">
+                      <item>
+                       <widget class="QCheckBox" name="move_cb">
+                        <property name="text">
+                         <string>Move</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_16">
+                      <item>
+                       <widget class="QLabel" name="label_18">
+                        <property name="text">
+                         <string>For X</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="move_x_sb">
+                        <property name="minimum">
+                         <double>-999.990000000000009</double>
+                        </property>
+                        <property name="maximum">
+                         <double>999.990000000000009</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_17">
+                      <item>
+                       <widget class="QLabel" name="label_19">
+                        <property name="text">
+                         <string>For Y</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="move_y_sb">
+                        <property name="minimum">
+                         <double>-999.990000000000009</double>
+                        </property>
+                        <property name="maximum">
+                         <double>999.990000000000009</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_18">
+                      <item>
+                       <widget class="QLabel" name="label_20">
+                        <property name="text">
+                         <string>For Z</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="move_z_sb">
+                        <property name="minimum">
+                         <double>-999.990000000000009</double>
+                        </property>
+                        <property name="maximum">
+                         <double>999.990000000000009</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="move_btn">
+                      <property name="text">
+                       <string>Move</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
-                </item>
-                <item>
-                 <widget class="QFrame" name="shrink_for_point_fr">
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_11">
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_27">
-                     <item>
-                      <widget class="QLabel" name="label_6">
-                       <property name="text">
-                        <string>x</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
-                       <property name="minimum">
-                        <double>-99.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_30">
-                     <item>
-                      <widget class="QLabel" name="label_9">
-                       <property name="text">
-                        <string>y</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_8">
-                       <property name="minimum">
-                        <double>-99.000000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_31">
-                     <item>
-                      <widget class="QLabel" name="label_10">
-                       <property name="text">
-                        <string>z</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame_3">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_20">
                   <item>
-                   <widget class="QLabel" name="label_11">
-                    <property name="text">
-                     <string>Coefficient for X</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="shrink_x_sb">
-                    <property name="minimum">
-                     <double>0.000000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>1.000000000000000</double>
-                    </property>
-                   </widget>
+                   <layout class="QVBoxLayout" name="verticalLayout_4">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_4">
+                      <item>
+                       <widget class="QCheckBox" name="shrink_cb">
+                        <property name="text">
+                         <string>Shrink</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_32">
+                      <item>
+                       <widget class="QCheckBox" name="shrink_for_point_cb">
+                        <property name="text">
+                         <string>Shrink for point</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="shrink_for_point_fr">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_11">
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_27">
+                         <item>
+                          <widget class="QLabel" name="label_6">
+                           <property name="text">
+                            <string>x</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="shrink_for_point_x_sb">
+                           <property name="minimum">
+                            <double>-99.000000000000000</double>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_30">
+                         <item>
+                          <widget class="QLabel" name="label_9">
+                           <property name="text">
+                            <string>y</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="shrink_for_point_y_sb">
+                           <property name="minimum">
+                            <double>-99.000000000000000</double>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_31">
+                         <item>
+                          <widget class="QLabel" name="label_10">
+                           <property name="text">
+                            <string>z</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QDoubleSpinBox" name="shrink_for_point_z_sb"/>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_9">
+                      <item>
+                       <widget class="QLabel" name="label_11">
+                        <property name="text">
+                         <string>Coefficient for X</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="shrink_x_sb">
+                        <property name="minimum">
+                         <double>0.000000000000000</double>
+                        </property>
+                        <property name="value">
+                         <double>1.000000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_10">
+                      <item>
+                       <widget class="QLabel" name="label_12">
+                        <property name="text">
+                         <string>Coefficient for Y</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="shrink_y_sb">
+                        <property name="minimum">
+                         <double>0.000000000000000</double>
+                        </property>
+                        <property name="value">
+                         <double>1.000000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_11">
+                      <item>
+                       <widget class="QLabel" name="label_13">
+                        <property name="text">
+                         <string>Coefficient for Z</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QDoubleSpinBox" name="shrink_z_sb">
+                        <property name="minimum">
+                         <double>0.000000000000000</double>
+                        </property>
+                        <property name="value">
+                         <double>1.000000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="shrink_btn">
+                      <property name="text">
+                       <string>Shrink</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_10">
-                  <item>
-                   <widget class="QLabel" name="label_12">
-                    <property name="text">
-                     <string>Coefficient for Y</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="shrink_y_sb">
-                    <property name="minimum">
-                     <double>0.000000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>1.000000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_11">
-                  <item>
-                   <widget class="QLabel" name="label_13">
-                    <property name="text">
-                     <string>Coefficient for Z</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QDoubleSpinBox" name="shrink_z_sb">
-                    <property name="minimum">
-                     <double>0.000000000000000</double>
-                    </property>
-                    <property name="value">
-                     <double>1.000000000000000</double>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="shrink_btn">
-                  <property name="text">
-                   <string>Shrink</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
            <item>
@@ -706,19 +725,6 @@
              </layout>
             </widget>
            </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
           </layout>
          </widget>
         </item>
@@ -733,8 +739,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1959</width>
-     <height>30</height>
+     <width>822</width>
+     <height>34</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuImport_obj_Model">
