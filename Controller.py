@@ -49,7 +49,7 @@ class Controller(QObject):
 
     def _resize(self):
         if self._resize_for_point_flag:
-            self._model.resize_around_point(
+            self._model.resize_for_point(
                 self._resize_for_point_x,
                 self._resize_for_point_y,
                 self._resize_for_point_z,
