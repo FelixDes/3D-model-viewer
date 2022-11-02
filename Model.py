@@ -54,6 +54,8 @@ class Model(QObject):
 
     # ================PARSER===============
     def parse_for_url(self, url):
+        if url == ('', ''):
+            return
         file = open(url[0], 'r')
         vertexes = np.empty((0, 3), float)
         faces = np.empty((0, 3), int)
