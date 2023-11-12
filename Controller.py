@@ -17,6 +17,8 @@ class Controller(QObject):
         self._move_y = 0
         self._move_z = 0
 
+        self._reflect_axis = 0  # x:0 y:1 z:2
+
         self._shrink_x = 1
         self._shrink_y = 1
         self._shrink_z = 1
@@ -94,6 +96,20 @@ class Controller(QObject):
 
     def _move(self):
         self._model.move(self._move_x, self._move_y, self._move_z)
+
+    # ================REFLECT===============
+
+    @pyqtSlot(int)
+    def reflect_axis_changed(self, axis):
+        self._rotate_axis = axis
+
+    @pyqtSlot()
+    def reflect_clicked_wrapper(self):
+        self._reflect()
+        self._model.emit_update_model_signal()
+
+    def _reflect(self):
+        self._model.reflect(self._rotate_axis)  # todo
 
     # ================ROTATE===============
     @pyqtSlot(float)
@@ -212,6 +228,14 @@ class Controller(QObject):
         print(self._operations_order)
 
     @pyqtSlot(int)
+    def reflect_changed(self, flag):
+        if flag:
+            self._operations_order.append("re")
+        else:
+            self._operations_order.remove("re")
+        print(self._operations_order)
+
+    @pyqtSlot(int)
     def shrink_changed(self, flag):
         # self._shrink_flag = flag
         if flag:
@@ -229,6 +253,8 @@ class Controller(QObject):
                 self._rotate()
             if elem == "mv":
                 self._model.move(self._move_x, self._move_y, self._move_z)
+            if elem == "re":
+                self._reflect()
             if elem == "sh":
                 self._shrink()
             self._model.emit_update_model_signal()

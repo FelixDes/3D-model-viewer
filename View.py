@@ -1,4 +1,3 @@
-import numpy as np
 from PyQt6 import uic
 from PyQt6.QtCore import pyqtSlot
 from PyQt6.QtWidgets import QMainWindow, QFileDialog, QFrame
@@ -47,6 +46,10 @@ class MainWindow_ver2(QMainWindow):
         self.move_z_sb.valueChanged.connect(self._controller.move_z_changed)
         self.move_btn.clicked.connect(self._controller.move_clicked_wrapper)
 
+        # ================REFLECT===============
+        self.reflect_cbox.currentIndexChanged.connect(self._controller.reflect_axis_changed)
+        self.reflect_btn.clicked.connect(self._controller.reflect_clicked_wrapper)
+
         # ================SHRINK===============
         self.shrink_x_sb.valueChanged.connect(self._controller.shrink_x_changed)
         self.shrink_y_sb.valueChanged.connect(self._controller.shrink_y_changed)
@@ -78,6 +81,7 @@ class MainWindow_ver2(QMainWindow):
         self.resize_cb.stateChanged.connect(self._controller.resize_changed)
         self.rotate_cb.stateChanged.connect(self._controller.rotate_changed)
         self.move_cb.stateChanged.connect(self._controller.move_changed)
+        self.reflect_cb.stateChanged.connect(self._controller.reflect_changed)
         self.shrink_cb.stateChanged.connect(self._controller.shrink_changed)
         self.apply_btn.clicked.connect(self._controller.apply_clicked)
 

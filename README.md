@@ -6,3 +6,4 @@
 2. Rotate
 3. Move
 4. Shrink
+5. Reflect

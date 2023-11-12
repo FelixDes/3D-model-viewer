@@ -5,7 +5,7 @@ from PyQt6.QtCore import QObject, pyqtSignal
 
 from MatrixBuilder import _make_rotate_along_free_axis_transformation_matrix, _make_shrink_transition_matrix, \
     _make_shrink_along_free_axis_transition_matrix, _make_rotate_transition_matrix, _make_resize_transition_matrix, \
-    _make_move_transition_matrix
+    _make_move_transition_matrix, _make_reflect_transition_matrix
 from ObjModel import ObjModel
 
 
@@ -21,6 +21,10 @@ class Model(QObject):
     # ================MOVE===============
     def move(self, x, y, z):
         self._update_vertexes(_make_move_transition_matrix(x, y, z))
+
+    # ================REFLECT===============
+    def reflect(self, a):
+        self._update_vertexes(_make_reflect_transition_matrix(a))
 
     # ================RESIZE===============
     def resize(self, c):

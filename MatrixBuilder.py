@@ -38,6 +38,29 @@ def _make_rotate_transition_matrix(axis, angle):
     ])
 
 
+def _make_reflect_transition_matrix(axis):
+    if axis == 0:
+        return np.array([
+            [-1, 0, 0, 0],
+            [0, 1, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
+        ])
+    if axis == 1:
+        return np.array([
+            [1, 0, 0, 0],
+            [0, -1, 0, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1]
+        ])
+    return np.array([
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, -1, 0],
+        [0, 0, 0, 1]
+    ])
+
+
 def _make_shrink_transition_matrix(cx, cy, cz):
     return np.array([
         [cx, 0, 0, 0],
